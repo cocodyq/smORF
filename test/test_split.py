@@ -30,7 +30,7 @@ def splitseq(infile,X):
         else:
             file_num = fa_num//X+1
         for i in range(file_num):
-            outfile="./out/split"+str(i+1)+".fasta"
+            outfile="./output/split"+str(i+1)+".fasta"
             out1=open(outfile, "w")
             outlist.append(outfile)
             start=i*X
