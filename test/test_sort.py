@@ -33,7 +33,7 @@ def sortseq(out):
     sort.close()    
 
 def test_sortseq():
-    file_list=["D:/project/output/split1.fasta","D:/project/output/split2.fasta","D:/project/output/split3.fasta"]
+    file_list=["./output/split1.fasta","./output/split2.fasta","./output/split3.fasta"]
     file_index=[['>@r3', '>@r2', '>@r4'],['>@r5', '>@r7', '>@r8'],['>@r6']]
     for i in range(len(file_list)):
         sortseq(file_list[i])
