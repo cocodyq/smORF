@@ -44,7 +44,7 @@ def splitseq(infile,X):
     return outlist
 
 def test_splitseq():
-    infile="../data/practice.fasta"
+    infile="./data/practice.fasta"
     testlist=splitseq(infile,3)
     file_list=["D:/project/output/split1.fasta","D:/project/output/split2.fasta","D:/project/output/split3.fasta"]
     assert testlist == file_list
