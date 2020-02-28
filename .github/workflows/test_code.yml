@@ -28,8 +28,7 @@ jobs:
       run: |
         pip install pytest
         pytest
-    - name: test address
+    - name: test code
       run:
-        ls -all -h                 # 可以直接运行普通的linux命令
-        pwd
+        py.test ./test/test_split.py
       
