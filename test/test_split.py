@@ -46,7 +46,7 @@ def splitseq(infile,X):
 def test_splitseq():
     infile="./data/practice.fasta"
     testlist=splitseq(infile,3)
-    file_list=["D:/project/output/split1.fasta","D:/project/output/split2.fasta","D:/project/output/split3.fasta"]
+    file_list=["./output/split1.fasta","./output/split2.fasta","./output/split3.fasta"]
     assert testlist == file_list
 
     file_index=[['>@r4', '>@r2', '>@r3'],['>@r8', '>@r5', '>@r7'],['>@r6', '>@r1']]
