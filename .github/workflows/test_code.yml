@@ -28,7 +28,5 @@ jobs:
       run: |
         pip install pytest
         pytest
-    - name: test code
-      run:
-        py.test ./test/test_split.py
+ 
       
