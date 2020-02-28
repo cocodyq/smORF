@@ -21,4 +21,4 @@ jobs:
       - name: Test with pytest
         run: |
           pipenv install pytest --dev
-          pipenv run py.test -v ./test/testprint.py
+          pipenv run py.test -v ./test/test_spltit.py
