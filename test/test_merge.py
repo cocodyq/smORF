@@ -7,7 +7,7 @@ circle=0
 #merge every sorted and splited file
 def merge_sortseq(sortout):
     mediumlist=[]
-    resultfile="D:/project/output/medium"
+    resultfile="./output/medium"
     global circle
     circle+=1
     no=1
@@ -99,8 +99,8 @@ def merge_sortseq(sortout):
     return mediumlist
 
 def test_mergeseq():
-    file_list=["D:/project/output/split1.fasta","D:/project/output/split2.fasta","D:/project/output/split3.fasta"]
-    merge_list=["D:/project/output/medium2_1.fasta"]
+    file_list=["./output/split1.fasta","./output/split2.fasta","./output/split3.fasta"]
+    merge_list=["./output/medium2_1.fasta"]
     testlist=merge_sortseq(file_list)
     assert testlist == merge_list
 
