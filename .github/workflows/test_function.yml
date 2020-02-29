@@ -1,0 +1,32 @@
+name: pytest test_function
+
+on: [push]
+
+jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install pipenv
+        uses: dschep/install-pipenv-action@v1
+      - name: Install dependencies
+        run: |
+          pipenv install --dev
+      - name: pytest split
+        run: |
+          pipenv install pytest --dev
+          pipenv run py.test -v ./test/test_merge.py
+      - name: pytest sort
+        run: |
+          pipenv install pytest --dev
+          pipenv run py.test -v ./test/test_sort.py
+      - name: pytest merge
+        run: |
+          pipenv install pytest --dev
+          pipenv run py.test -v ./test/test_merge.py
