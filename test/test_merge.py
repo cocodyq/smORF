@@ -104,7 +104,8 @@ def test_mergeseq():
     testlist=merge_sortseq(file_list)
     assert testlist == merge_list
 
-    file_index=['>@r5', '>@r6', '>@r7','>@r2', '>@r4', '>@r8']
+    file_index1=['>@r5', '>@r6', '>@r7','>@r2', '>@r4', '>@r8']
+    file_index2=['>@r5', '>@r1', '>@r7','>@r2', '>@r4', '>@r8']
     index=[]
     with open (testlist[0]) as f:
         for line in f :
@@ -113,5 +114,5 @@ def test_mergeseq():
                 index.append(line)
             else:
                 pass
-    assert index==file_index
+    assert index==file_index1 or index==file_index2
         
