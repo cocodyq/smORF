@@ -1,4 +1,4 @@
-name: Python application
+name: pytest test_sort
 
 on: [push]
 
