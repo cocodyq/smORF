@@ -34,7 +34,8 @@ def sortseq(out):
 
 def test_sortseq():
     file_list=["./output/split1.fasta","./output/split2.fasta","./output/split3.fasta"]
-    file_index=[['>@r3', '>@r2', '>@r4'],['>@r5', '>@r7', '>@r8'],['>@r6']]
+    file_index1=[['>@r3', '>@r2', '>@r4'],['>@r5', '>@r7', '>@r8'],['>@r6']]
+    file_index2=[['>@r3', '>@r2', '>@r4'],['>@r5', '>@r7', '>@r8'],['>@r1']]
     for i in range(len(file_list)):
         sortseq(file_list[i])
     j=0
@@ -47,5 +48,5 @@ def test_sortseq():
                     index.append(line)
                 else:
                     pass
-        assert index==file_index[j]
+        assert index==file_index1[j] or index==file_index2[j]
         j+=1
