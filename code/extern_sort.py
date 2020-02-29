@@ -32,7 +32,7 @@ def splitseq(infile,X):
         else:
             file_num = fa_num//X+1
         for i in range(file_num):
-            outfile="D:/project/output/split"+str(i+1)+".fasta"
+            outfile="./output/split"+str(i+1)+".fasta"
             out1=open(outfile, "w")
             outlist.append(outfile)
             start=i*X
@@ -77,7 +77,7 @@ def sortseq(out):
 #merge every sorted and splited file
 def merge_sortseq(sortout):
     mediumlist=[]
-    resultfile="D:/project/output/medium"
+    resultfile="./output/medium"
     global circle
     circle+=1
     no=1
@@ -174,13 +174,14 @@ if __name__ == '__main__':
     import shutil
     #X=3 #X is the number of sequences in next every splited file
     circle=0
-    inputfile="D:/project/data/practice.fasta"
+    inputfile="./data/practice.fasta"
     #split inputfile according to X
     outl=splitseq(inputfile,3)
     #sort every splited file
     for i in range(len(outl)):
         sortseq(outl[i])
     #merge every sorted and splited file
-    resultlist=merge_sortseq(outl)  
-    result="D:/project/output/result.fasta"
+    resultlist=merge_sortseq(outl)
+    print(resultlist)
+    result="./output/result.fasta"
     shutil.copyfile(resultlist[0],result)
