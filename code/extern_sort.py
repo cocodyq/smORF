@@ -117,11 +117,8 @@ def merge_sortseq(sortout):
     
         while(True):
         #sort
-            print(merge)
             merge_sort = sorted(merge.items(),key=lambda i:i[1]) 
-            print(merge_sort)
             mediumf.write(merge_sort[0][0]+'\n'+ merge_sort[0][1]+'\n')
-        
             key=merge_sort[0][0]
             merge.pop(merge_sort[0][0])
         #store next seq
