@@ -1,15 +1,21 @@
 import sys
 import os
 import pytest
-
 #sort every splited file
 def sortseq(out):
     ##open inputfile and store FASTA in the dictionary according to ID and seq
     fasta={}
     f=open(out, "r")
+    index=[]
+    num=1
     for line in f :
         line = line.strip()
-        if line.startswith('>'):
+        if line[0]=='>':
+            if line in index:
+                line=line+"("+str(num)+")"
+                num+=1
+            else:
+                index.append(line)
             ID=line
             fasta[ID]=[]
         else:
@@ -30,7 +36,7 @@ def sortseq(out):
     for i in range(len(fasta)):
         sort.write(fasta[i][0]+"\n")
         sort.write(fasta[i][1]+"\n")
-    sort.close()    
+    sort.close()       
 
 def test_sortseq():
     file_list=["./output/split1.fasta","./output/split2.fasta","./output/split3.fasta"]
