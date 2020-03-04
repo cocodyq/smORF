@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Feb 17 15:40:34 2020
+Created on Wed Mar  4 11:14:55 2020
 
 @author: ASUS
 """
@@ -32,7 +32,7 @@ def splitseq(infile,X):
         else:
             file_num = fa_num//X+1
         for i in range(file_num):
-            outfile="./output/split"+str(i+1)+".fasta"
+            outfile="D:/project/output2/split"+str(i+1)+".fasta"
             out1=open(outfile, "w")
             outlist.append(outfile)
             start=i*X
@@ -49,9 +49,16 @@ def sortseq(out):
     ##open inputfile and store FASTA in the dictionary according to ID and seq
     fasta={}
     f=open(out, "r")
+    index=[]
+    num=1
     for line in f :
         line = line.strip()
-        if line.startswith('>'):
+        if line[0]=='>':
+            if line in index:
+                line=line+"("+str(num)+")"
+                num+=1
+            else:
+                index.append(line)
             ID=line
             fasta[ID]=[]
         else:
@@ -77,7 +84,7 @@ def sortseq(out):
 #merge every sorted and splited file
 def merge_sortseq(sortout):
     mediumlist=[]
-    resultfile="./output/medium"
+    resultfile="D:/project/output2/medium"
     global circle
     circle+=1
     no=1
@@ -95,19 +102,24 @@ def merge_sortseq(sortout):
         seq1=merge1.readline().strip()
         info2=merge2.readline().strip()
         seq2=merge2.readline().strip()
+        if info1==info2:
+            info2=info2+"(1)"        
         if seq1 != seq2:
             merge[info1]=seq1
             merge[info2]=seq2
         else:
             info1=merge1.readline().strip()
             seq1=merge1.readline().strip()
+            if info1==info2:
+                info2=info2+"(1)"   
             merge[info1]=seq1
             merge[info2]=seq2
     
         while(True):
         #sort
+            print(merge)
             merge_sort = sorted(merge.items(),key=lambda i:i[1]) 
-            
+            print(merge_sort)
             mediumf.write(merge_sort[0][0]+'\n'+ merge_sort[0][1]+'\n')
         
             key=merge_sort[0][0]
@@ -116,9 +128,13 @@ def merge_sortseq(sortout):
             if key == info1:
                 info1=merge1.readline().strip()
                 seq1=merge1.readline().strip()
+                if info1 in merge.keys():
+                    info1=info1+"(1)"
                 if seq1 in merge.values():
                     info1=merge1.readline().strip()
                     seq1=merge1.readline().strip()
+                    if info1 in merge.keys():
+                        info1=info1+"(1)"
                     if seq1:
                         merge[info1]=seq1
                     else:
@@ -132,9 +148,13 @@ def merge_sortseq(sortout):
             if key == info2:
                 info2=merge2.readline().strip()
                 seq2=merge2.readline().strip()
+                if info2 in merge.keys():
+                    info2=info2+"(1)"  
                 if seq2 in merge.values():
                     info2=merge2.readline().strip()
                     seq2=merge2.readline().strip()
+                    if info2 in merge.keys():
+                        info2=info2+"(1)"
                     if seq2:
                         merge[info2]=seq2
                     else:
@@ -174,14 +194,13 @@ if __name__ == '__main__':
     import shutil
     #X=3 #X is the number of sequences in next every splited file
     circle=0
-    inputfile="./data/practice.fasta"
+    inputfile="D:/project/data/practice.fasta"
     #split inputfile according to X
-    outl=splitseq(inputfile,3)
+    outl=splitseq(inputfile,4)
     #sort every splited file
     for i in range(len(outl)):
         sortseq(outl[i])
     #merge every sorted and splited file
-    resultlist=merge_sortseq(outl)
-    print(resultlist)
-    result="./output/result.fasta"
+    resultlist=merge_sortseq(outl)  
+    result="D:/project/output2/result.fasta"
     shutil.copyfile(resultlist[0],result)
