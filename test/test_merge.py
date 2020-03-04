@@ -3,7 +3,6 @@ import os
 import pytest
 import shutil
 circle=0
-
 #merge every sorted and splited file
 def merge_sortseq(sortout):
     mediumlist=[]
@@ -25,19 +24,24 @@ def merge_sortseq(sortout):
         seq1=merge1.readline().strip()
         info2=merge2.readline().strip()
         seq2=merge2.readline().strip()
+        if info1==info2:
+            info2=info2+"(1)"        
         if seq1 != seq2:
             merge[info1]=seq1
             merge[info2]=seq2
         else:
             info1=merge1.readline().strip()
             seq1=merge1.readline().strip()
+            if info1==info2:
+                info2=info2+"(1)"   
             merge[info1]=seq1
             merge[info2]=seq2
     
         while(True):
         #sort
+            print(merge)
             merge_sort = sorted(merge.items(),key=lambda i:i[1]) 
-            
+            print(merge_sort)
             mediumf.write(merge_sort[0][0]+'\n'+ merge_sort[0][1]+'\n')
         
             key=merge_sort[0][0]
@@ -46,9 +50,13 @@ def merge_sortseq(sortout):
             if key == info1:
                 info1=merge1.readline().strip()
                 seq1=merge1.readline().strip()
+                if info1 in merge.keys():
+                    info1=info1+"(1)"
                 if seq1 in merge.values():
                     info1=merge1.readline().strip()
                     seq1=merge1.readline().strip()
+                    if info1 in merge.keys():
+                        info1=info1+"(1)"
                     if seq1:
                         merge[info1]=seq1
                     else:
@@ -62,9 +70,13 @@ def merge_sortseq(sortout):
             if key == info2:
                 info2=merge2.readline().strip()
                 seq2=merge2.readline().strip()
+                if info2 in merge.keys():
+                    info2=info2+"(1)"  
                 if seq2 in merge.values():
                     info2=merge2.readline().strip()
                     seq2=merge2.readline().strip()
+                    if info2 in merge.keys():
+                        info2=info2+"(1)"
                     if seq2:
                         merge[info2]=seq2
                     else:
