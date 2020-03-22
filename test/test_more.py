@@ -27,7 +27,7 @@ def getmore(infile):
         else:
             fasta[seq]=[1]
             fasta[seq].append(ID)
-    outfile="D:/project/data/moreseq.fasta"
+    outfile="./data/moreseq.fasta"
     out=open(outfile,"w")
     for key,value in fasta.items():
         if value[0]>1:
@@ -37,7 +37,7 @@ def getmore(infile):
     return outfile
 
 def test_getmore():
-    infile="D:/project/data/practice.fasta"
+    infile="./data/test.fasta"
     testfile=getmore(infile)
     in_index=[">@r1",">@r2",">@r3",">@r4"]
     out_index=[]
