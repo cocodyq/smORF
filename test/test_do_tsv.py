@@ -52,11 +52,6 @@ def test_do_tsv():
             line=line.strip()
             index=line.split('\t',1)
             indexlist.append(index)
-        if indexlist[0]=file_index1[0]:
-            for i in range(1,len(indexlist)):
-                assert indexlist[i]==file_index1[i]
-        if indexlist[0]=file_index2[0]:
-            for i in range(1,len(indexlist)):
-                assert indexlist[i]==file_index2[i]
+        assert indexlist==file_index1 or indexlist==file_index2
           
         
