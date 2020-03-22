@@ -37,9 +37,9 @@ def getmore(infile):
     return outfile
 
 def test_getmore():
-    infile="./data/test.fasta"
+    infile="./data/practice.fasta"
     testfile=getmore(infile)
-    in_index=[">@r1",">@r2",">@r3",">@r4"]
+    in_index=[">@r3",">@r6"]
     out_index=[]
     with open (testfile) as f:
         for line in f:
