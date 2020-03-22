@@ -32,5 +32,5 @@ jobs:
           pipenv run py.test -v ./test/test_merge.py
       - name: pytest do_tsv
         run: |
-          pipenv run py.test -v ./test/test_do_tsv.py
+          pipenv run py.test -v -s ./test/test_do_tsv.py
 
