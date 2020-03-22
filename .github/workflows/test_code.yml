@@ -24,3 +24,6 @@ jobs:
       - name: pytest more
         run: |
           pipenv run py.test -v ./test/test_more.py
+      - name: pytest replace
+        run: |
+          pipenv run py.test -v ./test/test_replaceseq.py
