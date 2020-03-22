@@ -39,7 +39,8 @@ def getmore(infile):
 def test_getmore():
     infile="./data/practice.fasta"
     testfile=getmore(infile)
-    in_index=[">@r3",">@r6"]
+    in_index1=[">@r3",">@r6"]
+    in_index2=[">@r6",">@r3"]
     out_index=[]
     with open (testfile) as f:
         for line in f:
@@ -48,4 +49,4 @@ def test_getmore():
                 out_index.append(line)
             else:
                 pass
-        assert out_index==in_index
+        assert out_index==in_index1 or out_index==in_index2
