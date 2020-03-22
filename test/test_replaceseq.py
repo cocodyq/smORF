@@ -54,7 +54,7 @@ def test_getmore():
         for line in f:
             line=line.strip()
             if line[0]=='>':
-                line=ID
+                ID=line
                 out_dic[ID]=""
             else:
                 out_dic[ID]=line
