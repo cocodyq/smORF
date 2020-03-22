@@ -50,5 +50,6 @@ def test_do_tsv():
         for line in f:
             line=line.strip()
             index=line.split('\t',1)
+            print index
             assert index==file_index[i]
             i+=1
