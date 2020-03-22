@@ -46,7 +46,7 @@ def test_do_tsv():
     testfile=do_tsv(infile)
     i=1
     out_dic={}
-    file_dic={1：['>@r1', '>@r1'],2：['>@r1', '>@r1.1']:3：['>@r2', '>@r2']}
+    file_dic={1：['>@r1', '>@r1'],2：['>@r1', '>@r1.1'],3：['>@r2', '>@r2']}
     with open (testfile) as f:
         for line in f:
             line=line.strip()
