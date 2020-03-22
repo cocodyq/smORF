@@ -37,7 +37,7 @@ def replace(infile):
                 fa_term.append(line)
             seq=''.join(fa_term)
             fasta[ID]=seq
-    outfile="D:/project/data/replace_17.fasta"
+    outfile="./data/replace_17.fasta"
     out=open(outfile,"w")
     for key,value in fasta.items():
         out.write(key+"\n")
@@ -46,18 +46,16 @@ def replace(infile):
     return outfile
 
 def test_getmore():
-    infile="D:/project/data/practice.fasta"
+    infile="./data/test.fasta"
     testfile=replace(infile)
-    in_seq=["NDKKRHCTSQYFWALLLMNKHYADKCFLRTSQWLLM","NDKKRHCTSQYFWALLLMNKHYADKCFLRTSQWLLM","MNKHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSTFYCHLLA",
-            "MNKHYADTFYCHLLATFYCHLLAKKSTFYCHLLAALLN","MNKHYADTFYCHLLATFYCHLLAKKSTFYCHLLAALLN","MNKHYADTFYCHLLATFYCHLLAKKSTFYCHLLAALLN","MNKHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSTFYCHLLA",
-            "ASQWLLMCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSWLLMHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLPPGG","ASQWLLMCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSWLLMHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLPPGG","MNKHYADTFYCHLLAKKSWLLMHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLGGGPPP",
-            "ASQWLLMCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSWLLMHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLPPGG"]
-    out_seq=[]
+    in_dic={">@r1":"NDKKRHCTSQYFWALLLMNKHYADKCFLRTSQWLLM",">@r1.1":"NDKKRHCTSQYFWALLLMNKHYADKCFLRTSQWLLM",">@r2":"MNKHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSTFYCHLLA"}
+    out_dic={}
     with open (testfile) as f:
         for line in f:
             line=line.strip()
             if line[0]=='>':
-                pass
+                line=ID
+                out_dic[ID]=""
             else:
-                out_seq.append(line)
-        assert out_seq==in_seq
+                out_dic[ID]=line
+        assert out_dic==in_dic
