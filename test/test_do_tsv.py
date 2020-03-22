@@ -44,13 +44,19 @@ def do_tsv(infile):
 def test_do_tsv():
     infile="./data/test.fasta"
     testfile=do_tsv(infile)
-    i=1
-    out_dic={}
-    file_dic={1：['>@r1', '>@r1'],2：['>@r1', '>@r1.1'],3：['>@r2', '>@r2']}
+    file_index1=[['>@r1', '>@r1'],['>@r1', '>@r1.1'],['>@r2', '>@r2']]
+    file_index2=[['>@r2', '>@r2'],['>@r1', '>@r1'],['>@r1', '>@r1.1']]
+    indexlist=[]
     with open (testfile) as f:
         for line in f:
             line=line.strip()
             index=line.split('\t',1)
-            out_dic[i]=index
-            i+=1
-        assert out_dic.values()==file_dic.values()
+            indexlist.append(index)
+        if indexlist[0]=file_index1[0]:
+            for i in range(1,len(indexlist)):
+                assert indexlist[i]==file_index1[i]
+        if indexlist[0]=file_index2[0]:
+            for i in range(1,len(indexlist)):
+                assert indexlist[i]==file_index2[i]
+          
+        
