@@ -1,4 +1,4 @@
-name: pytest test_do_tsv
+name: pytest test_code
 
 on: [push]
 
@@ -21,6 +21,6 @@ jobs:
       - name: Install pytest
         run: |
           pipenv install pytest --dev
-      - name: pytest do_tsv
+      - name: pytest more
         run: |
-          pipenv run py.test -v ./test/test_do_tsv.py
+          pipenv run py.test -v ./test/test_more.py
