@@ -33,7 +33,7 @@ def do_tsv(infile):
         else:
             infoseq[seq]=[]
             infoseq[seq].append(ID)
-    outfile="./output/practice.tsv"
+    outfile="./output/test.tsv"
     out=open(outfile,"w")
     for value in infoseq.values():
         for i in range(len(value)):
@@ -42,7 +42,7 @@ def do_tsv(infile):
     return outfile
 
 def test_do_tsv():
-    infile="./data/practice1.fasta"
+    infile="./data/test.fasta"
     testfile=do_tsv(infile)
     i=0
     file_index=[['>@r1', '>@r1'],['>@r1', '>@r1.1'],['>@r2', '>@r2'],['>@r2', '>@r2.1'],['>@r3', '>@r3'],['>@r3', '>@r3(1)'],['>@r3', '>@r3(2)'],['>@r4', '>@r4'],['>@r4', '>@r5'],['>@r4', '>@r5(4)'],['>@r5(3)', '>@r5(3)']]
@@ -50,6 +50,5 @@ def test_do_tsv():
         for line in f:
             line=line.strip()
             index=line.split('\t',1)
-            print index
             assert index==file_index[i]
             i+=1
