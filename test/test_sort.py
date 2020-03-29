@@ -6,37 +6,37 @@ def sortseq(out):
     ##open inputfile and store FASTA in the dictionary according to ID and seq
     fasta={}
     f=open(out, "r")
-    index=[]
+    index={}
+    fa_term=[]
     num=1
+    #duplicate
     for line in f :
         line = line.strip()
         if line[0]=='>':
-            if line in index:
+            if fa_term:
+                seq=''.join(fa_term)
+                fasta[seq]=ID
+                fa_term=[]
+            if line in index.keys():
                 line=line+"("+str(num)+")"
                 num+=1
             else:
-                index.append(line)
+                index[line]=''
             ID=line
-            fasta[ID]=[]
-        else:
-            fasta[ID].append(line)
             
-    #duplicate     
-    for key , value in list(fasta.items()):
-        seq=''.join(value)
-        if seq in fasta.values():
-            fasta.pop(key)
-            continue
-        fasta[key]=seq
+        else:
+            fa_term.append(line)
+    seq=''.join(fa_term)
+    fasta[seq]=ID
     
     #sort seq
-    fasta = sorted(fasta.items(),key=lambda i:i[1]) 
+    fasta = sorted(fasta.items(),key=lambda i:i[0]) 
     f.close() 
     sort = open(out,"w")
     for i in range(len(fasta)):
-        sort.write(fasta[i][0]+"\n")
         sort.write(fasta[i][1]+"\n")
-    sort.close()       
+        sort.write(fasta[i][0]+"\n")
+    sort.close()    
 
 def test_sortseq():
     file_list=["./output/split1.fasta","./output/split2.fasta","./output/split3.fasta"]
