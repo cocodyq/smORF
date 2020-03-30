@@ -30,4 +30,7 @@ jobs:
       - name: pytest merge
         run: |
           pipenv run py.test -v ./test/test_merge.py
+      - name: pytest replace_sort
+        run: |
+          pipenv run py.test -v ./test/test_replacesort.py
 
