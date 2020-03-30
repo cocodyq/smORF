@@ -30,7 +30,7 @@ def splitseq(infile,X):
         else:
             file_num = fa_num//X+1
         for i in range(file_num):
-            outfile="./output3/split"+str(i+1)+".fasta"
+            outfile="./output/split"+str(i+1)+".fasta"
             out1=open(outfile, "w")
             outlist.append(outfile)
             start=i*X
@@ -92,7 +92,7 @@ def sortseq(out):
 
 def test_sortseq():
     splitseq('./data/test_replacesort.fasta',3)
-    file_list=["./output3/split1.fasta","./output3/split2.fasta","./output3/split3.fasta","./output3/split4.fasta"]
+    file_list=["./output/split1.fasta","./output/split2.fasta","./output/split3.fasta","./output/split4.fasta"]
     file_index=[['>@r2', '>@r1.1'],['>@r3(2)'],['>@r5(1)','>@r4'],['>@r6','>@r5']]
     file_seq=[['MNKHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSTFYCHLLA','NDKKRHCTSQYFWALLLMNKHYADKCFLRTSQWLLM'],
     ['MNKHYADTFYCHLLATFYCHLLAKKSTFYCHLLAALLN'],['ASQWLLMCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSWLLMHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLPPGG','MNKHYADTFYCHLLASQWLLMALLLMNKHYADTFYCHLLAKKSTFYCHLLA'],
