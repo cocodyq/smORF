@@ -88,7 +88,7 @@ result:
 #change file name when using it
 python split1.py
 ```
-result:
+result:  
 `/share/yiqian/smorf/linclust/replace/l6/sub/subsplit1.fasta`
 `/share/yiqian/smorf/linclust/replace/l6/sub/subsplit2.fasta`
 `/share/yiqian/smorf/linclust/replace/l6/sub/subsplit3.fasta`
@@ -103,7 +103,7 @@ makeblastdb -in subsplit1.fasta -dbtype prot -blastdb_version 4 -out subsplit1db
 #swipe
 swipe -d subsplit1db -i sub1.fasta -a 3 -m '8 std qcovs' -o split1out -p 1
 ```
-### calcula result
+### calculate result
 ```
 grep ">" subsplit5.fasta | awk '{print "gnl|BL_ORD_ID|"NR-1"\t"$1}' | sed 's/>//g' > ref5.names.list
 grep -v ">" subsplit5.fasta | awk '{print length}' > t
