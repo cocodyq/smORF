@@ -105,15 +105,22 @@ swipe -d subsplit1db -i sub1.fasta -a 3 -m '8 std qcovs' -o split1out -p 1
 ```
 ### calculate result
 ```
+grep ">" sub1.fasta | awk '{print "gnl|BL_ORD_ID|"NR-1"\t"$1}' | sed 's/>//g' > query.names.list
+grep -v ">" sub1.fasta | awk '{print length}' > t
+paste -d'\t' query.names.list t > t2; rm -rf t; mv t2 query.names.list
+
 grep ">" subsplit5.fasta | awk '{print "gnl|BL_ORD_ID|"NR-1"\t"$1}' | sed 's/>//g' > ref5.names.list
 grep -v ">" subsplit5.fasta | awk '{print length}' > t
 paste -d'\t' ref5.names.list t > t2; rm -rf t; mv t2 ref5.names.list
+
 awk '$3 >= 80 && $11 <= 1e-5' split5out > split5tmp
 sort -k1,1 ref5.names.list | cut -f1,3 > ref5
 cat split5tmp | sort -k2,2 > split5tmp.5
 join -1 1 -2 2 ref5 split5tmp.5 | sed 's/ /\t/g' > split5tmp.6
+sort -k2,2 query.names.list | cut -f2,3 > query
 cat split5tmp.6 | sort -k3,3 > split5tmp.7
 join -1 1 -2 3 query split5tmp.7 | sed 's/ /\t/g' > split5tmp.8
+
 cat split5tmp.8 | awk '{print $0"\t"$6/$2"\t"$6/$4}' > split5tmp.9
 awk '$15 >= 0.9 && $16 >= 0.9' split5tmp.9 > split5tmp.10.filt
 cat split5tmp.10.filt | sort -k1,1 | uniq > 0.9filt5
