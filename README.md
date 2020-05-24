@@ -113,7 +113,7 @@ grep ">" subsplit5.fasta | awk '{print "gnl|BL_ORD_ID|"NR-1"\t"$1}' | sed 's/>//
 grep -v ">" subsplit5.fasta | awk '{print length}' > t
 paste -d'\t' ref5.names.list t > t2; rm -rf t; mv t2 ref5.names.list
 
-awk '$3 >= 80 && $11 <= 1e-5' split5out > split5tmp
+awk '$3 >= 90 && $11 <= 1e-5' split5out > split5tmp
 sort -k1,1 ref5.names.list | cut -f1,3 > ref5
 cat split5tmp | sort -k2,2 > split5tmp.5
 join -1 1 -2 2 ref5 split5tmp.5 | sed 's/ /\t/g' > split5tmp.6
