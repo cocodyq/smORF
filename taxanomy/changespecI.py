@@ -6,7 +6,6 @@ Created on Mon Aug  3 22:09:34 2020
 """
 
 def change(in_file,out_file):
-
     out=open(out_file, "w")
     with open (in_file) as f1:
         for line in f1 :
@@ -26,8 +25,7 @@ def mapspecI_genome_taxa(specI_genome_infile,specI_taxa_infile,specI_genome_taxa
     specI_genome.columns=['specI_cluster','genome'] 
     specI_taxanomy=pd.read_table(specI_taxa_infile,sep='\t')
     specI_genome_taxa=pd.merge(specI_genome,specI_taxanomy,on=['specI_cluster'],how='inner')
-    specI_genome_taxa.to_csv(path_or_buf=specI_genome_taxa_outfile, sep='\t', index=False)
-    
+    specI_genome_taxa.to_csv(path_or_buf=specI_genome_taxa_outfile, sep='\t', index=False)  
 def getnospecI(in_file1,in_file2,out_file):
     out=open(out_file, "w")
     specIdict2={}
