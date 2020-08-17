@@ -48,3 +48,4 @@ ktImportText taxanomy_tsv_change_clust_krona.txt -o linclust_krona.html
 # 6.Calculate the number of smORFs and genomes of each taxonomy
 `r_format.py`
 `taxanomy_tsv_change_clust.txt` → `taxanomy_tsv_change_clust_rformat.txt`
+
