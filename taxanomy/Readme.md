@@ -25,7 +25,7 @@ get `ref_specI_taxonomy_change.tsv`
 - `mapnospecI_taxa.py`
   
   get `nospecI_taxonomy.tsv`
-- cat ref_specI_taxonomy_change.tsv nospecI_taxonomy.tsv >ref_specI_taxonomy_all.tsv
+- ```cat ref_specI_taxonomy_change.tsv nospecI_taxonomy.tsv >ref_specI_taxonomy_all.tsv```
 ## (3) map smORFs to ref_specI_taxonomy_all.tsv,get taxonomy of all smORFs
 `taxa_smorf.py`
 
@@ -51,7 +51,7 @@ get `smorfs_dedup_specI_genome_taxa_2.txt`
 
 `taxanomy_tsv_change_clust.txt` → `taxanomy_tsv_change_clust_krona.txt`
 ## (2) Krona
-ktImportText taxanomy_tsv_change_clust_krona.txt -o linclust_krona.html
+```ktImportText taxanomy_tsv_change_clust_krona.txt -o linclust_krona.html```
 
 # 6.Calculate the number of smORFs and genomes of each taxonomy
 `r_format.py`
