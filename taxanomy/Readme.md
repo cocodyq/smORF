@@ -17,7 +17,9 @@ mmseqs createtsv smorfs_dedup.DB smorfs_dedup.DB smorfs_dedup_DB_0.9_clu smorfs_
 # 3. Pre process the two Progenome2.2 files(One is specI-genome,the other is specI-taxonomy)
 ## (1) Change the name of the first column in specI-taxonomy file.Join specI-genome file and specI-taxanomy file.Find missing specI.
 In specI-genome file,the specI name is like `specI_v3_Cluster1`,but in specI-taxanomy file,the specI name is like `specI_v3_02118`.So we need to unify the name format first.
+
 `changespecI.py`
+
 get `ref_specI_taxonomy_change.tsv`
 ## (2) Map missing specI to Celio's specI-taxonomy file and merge.
 - `mapnospecI_taxa.py`
