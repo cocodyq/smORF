@@ -79,5 +79,5 @@ get `smorf_genome_specI_inname.txt`
 ```
 cat smorfs_dedup_specI_genome_taxa_2.txt smorf_genome_specI_inname.txt >smorfs_dedup_specI_genome_taxa_all.txt
 ```
-## Change taxonomy based on clusters / Krona / Calculate the number of smORFs and genomes of each taxonomy
+## 4.Change taxonomy based on clusters / Krona / Calculate the number of smORFs and genomes of each taxonomy
 Same as the analysis by progenome2.2 files
