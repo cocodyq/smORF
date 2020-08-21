@@ -26,7 +26,6 @@ def getgenometax(in_file,out_file):
             out.write(line+"\t"+tax+"\n")
     out.close() 
 
-
 if __name__ == '__main__': 
     import sys
     import os
