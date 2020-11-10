@@ -31,3 +31,5 @@ mmseqs createtsv GMSC10_smorf_nonsingleton.DB GMSC10_smorf_nonsingleton.DB GMSC1
 cut -f 1 GMSC10_smorf_nonsingleton_0.5_clu.tsv|sort|uniq -c|wc -l
 #calculate singleton
 cut -f 1 GMSC10_smorf_nonsingleton_0.5_clu.tsv|uniq -u|wc -l
+#extract ID of singletons
+cut -f 1 GMSC10_smorf_nonsingleton_0.9_clu.tsv|uniq -u >0.9clu_singleton_name
