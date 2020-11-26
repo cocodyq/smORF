@@ -37,7 +37,7 @@ def dedup_fasta(infile):
     outfile2 = sp.replace('.faa.gz', 'dedup.faa.gz')
     out1 = gzip.open(outfile1, "wt", compresslevel=1)
     out2 = gzip.open(outfile2, "wt", compresslevel=1)
-    for seq,(ID,count) in fasta.items():
+    for seq,(ID,count) in sorted(fasta.items()):
         out1.write(f"{count}\t{seq}\n")
         out2.write(f">{ID}\n{seq}\n")
     out1.close()
