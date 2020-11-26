@@ -29,6 +29,8 @@ def splitseq(infile,X,outfile1,outfile2,outfile3,outfile4,outfile5):
     for z in range(X):
         index=f.readline().strip()
         seq=f.readline().strip()
+        if not seq:
+            break
         out5.write(index+"\n"+seq+"\n")
     out5.close()
     
