@@ -8,7 +8,7 @@ def mergeseq(outfile):
     from fasta import fasta_iter
 
     with gzip.open(outfile, compresslevel=1, mode='wt') as output:
-        inputs = [fasta_iter(f) for f in glob(f'submetag*.dedup.faa.gz')]
+        inputs = [fasta_iter(f) for f in glob(f'*.dedup.faa.gz')]
         merged = heapq.merge(*inputs, key=lambda h_seq: (h_seq[1], h_seq[0]))
         preseq="x"
         for h,seq in merged:
