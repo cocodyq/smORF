@@ -1,4 +1,4 @@
-from jug import TaskGenerator, bvalue
+from jug import TaskGenerator
 
 @TaskGenerator
 def mergeseq(outfile):
