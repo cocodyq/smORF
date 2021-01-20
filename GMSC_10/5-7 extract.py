@@ -1,23 +1,6 @@
-#calculate occured times of every sequences
-def count_number(infile,outfile):
-    import gzip
-    f = gzip.open(infile,"rt")
-    out =  gzip.open(outfile, "wt", compresslevel=1)
-    seq={}
+from jug import TaskGenerator
 
-    for line in f:
-        line = line.strip()
-        linelist = line.split("\t")
-        if linelist[1] not in seq.keys():
-            seq[linelist[1]] = int(linelist[0])
-        else:
-            seq[linelist[1]] += int(linelist[0])
-    for key,value in seq.items():
-        out.write(str(value)+"\t"+key+"\n")
-    f.close
-    out.close()
-   
-#extract singletons and non-singletons    
+@TaskGenerator
 def extract_seq(infile1,infile2,outfile1,outfile2):
     from fasta import fasta_iter
     import gzip
@@ -27,7 +10,7 @@ def extract_seq(infile1,infile2,outfile1,outfile2):
         line = line.strip()
         linelist = line.split("\t")
         if linelist[0] != "1":
-            fasta[line[1]] = ""
+            fasta[linelist[1]] = ""
     f.close()
     
     out1 = gzip.open(outfile1, "wt", compresslevel=1)
@@ -40,11 +23,9 @@ def extract_seq(infile1,infile2,outfile1,outfile2):
     out1.close()
     out2.close()
     
-if __name__ == '__main__': 
-    infile1="splits/all_number.tsv.gz"
-    infile2="splits/smorf_dedup.faa.gz"
-    outfile1="splits/all_number_dedup.tsv.gz"
-    outfile2="splits/smorf_nonsingleton.faa.gz"
-    outfile3="splits/smorf_singleton.faa.gz"
-    count_number(infile1,outfile1)
-    extract_seq(outfile1,infile2,outfile2,outfile3)
+
+infile1="data/pro_raw_number.tsv.gz"
+infile2="data/pro_dedup.faa.gz"
+outfile1="data/pro_nonsingleton.faa.gz"
+outfile2="data/pro_singleton.faa.gz"
+extract_seq(infile1,infile2,outfile1,outfile2)
