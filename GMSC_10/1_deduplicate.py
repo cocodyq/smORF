@@ -1,6 +1,6 @@
 from jug import TaskGenerator, bvalue
 import hashlib
-import gzip 
+import gzip
 from fasta import fasta_iter
 
 @TaskGenerator
@@ -13,7 +13,6 @@ def splitseq(infile):
         gzip.open(f'split/submetag_{ix:03}.faa.gz',compresslevel=1,  mode='wt')
         for ix in range(256)]
     for ID,seq in fasta_iter(infile):
-        h=ID
         h = hashlib.sha256()
         h.update(seq.encode('ascii'))
         ix = int(h.hexdigest()[:2], 16)
@@ -22,7 +21,7 @@ def splitseq(infile):
         ot.close()
     print("finish splitseq")
     return (outputlist)
-    
+
 @TaskGenerator
 def dedup_fasta(infile):
     from fasta import fasta_iter
