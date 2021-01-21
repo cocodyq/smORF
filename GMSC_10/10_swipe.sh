@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
 makeblastdb -in 0.5clu_nonsingleton.faa -dbtype prot -blastdb_version 4 -parse_seqids -out 0.5clu_nonsingleton_db 
 
 swipe -d 0.5clu_nonsingleton_db -i 0.5clu_singleton_1000.faa -a 18 -m '8 std qcovs' -o result_align_0.5 -p 1 
