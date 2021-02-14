@@ -23,6 +23,9 @@ mmseqs convert2fasta metag_ProG_nonsingleton_0.9_clu_rep  metag_ProG_nonsingleto
 #generate tsv
 mmseqs createtsv ../metag_ProG_nonsingleton.DB ../metag_ProG_nonsingleton.DB metag_ProG_nonsingleton_0.9_clu metag_ProG_nonsingleton_0.9_clu.tsv
 
+#select singleton sequence name
+cut -f 1 metag_ProG_nonsingleton_0.9_clu.tsv|uniq -u >0.9clu_singleton_name
+
 cd ..
 mkdir 0.5_result
 cd 0.5_result
@@ -37,3 +40,6 @@ mmseqs convert2fasta metag_ProG_nonsingleton_0.5_clu_rep  metag_ProG_nonsingleto
 
 #generate tsv
 mmseqs createtsv ../metag_ProG_nonsingleton.DB ../metag_ProG_nonsingleton.DB metag_ProG_nonsingleton_0.5_clu metag_ProG_nonsingleton_0.5_clu.tsv
+
+#select singleton sequence name
+cut -f 1 metag_ProG_nonsingleton_0.5_clu.tsv|uniq -u >0.5clu_singleton_name
