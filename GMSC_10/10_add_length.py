@@ -27,9 +27,13 @@ def join(infile1,infile2,infile3,outfile):
             out.write(linelist[0]+"\t"+query[linelist[0]]+"\t"+linelist[1]+"\t"+subject[linelist[1]]+"\t"+linelist[2]+"\t"+linelist[3]+"\t"+linelist[10]+"\n")
     out.close()
 
-infile2="/home1/duanyq/GMSC/clust_result/0.5_result/metag_ProG_nonsingleton_0.5_clu_rep.faa"
+infile1="clust_result/0.5_result/metag_ProG_nonsingleton_0.5_clu_rep.faa"
+infile2="clust_result/0.9_result/metag_ProG_nonsingleton_0.9_clu_rep.faa"
 for i in range(24):
-  infile1="/home1/duanyq/GMSC/diamond/split/sub"+str(i)+".faa.gz"
-  infile3="/home1/duanyq/GMSC/diamond/result/sub"+str(i)+".faa.gz.tsv"
-  outfile="/home1/duanyq/GMSC/diamond/analysis/sub"+str(i)+".faa.gz.tsv.tmp.1"
-  join(infile1,infile2,infile3,outfile)
+  infile3="diamond/split/sub"+str(i)+".faa.gz"
+  infile4="diamond/result_0.5/sub"+str(i)+".faa.gz.tsv"
+  infile5="diamond/result_0.9/sub"+str(i)+".faa.gz.tsv"
+  outfile1="diamond/analysis/analysis_0.5/sub"+str(i)+".faa.gz.tsv.tmp.1"
+  outfile2="diamond/analysis/analysis_0.9/sub"+str(i)+".faa.gz.tsv.tmp.1"
+  join(infile3,infile1,infile4,outfile1)
+  join(infile3,infile2,infile5,outfile2)
