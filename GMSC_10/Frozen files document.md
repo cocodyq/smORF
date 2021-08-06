@@ -3,6 +3,9 @@
 
 ### 100% identity smORF catalog
 
+100% identity smORF catalog contains all the non-singletons in raw data, and rescued singletons that can be aligned to 90% of 50% identity representitive pepetides.
+The number of 100% identity smORF catalog is `977,020,743`.
+
 **Identifier:** 
 
 Peptides are named: 
@@ -40,9 +43,9 @@ Rename mapping file: `100AA_rename.tsv.xz`
 
 Columns: 
 
-1. original_name 
+1. original name 
 
-2. new_name 
+2. new name 
 
 e.g.
 ```
@@ -53,6 +56,9 @@ GMSC10.SMORF.000_264_320_897    GMSC10.100AA.000_000_000_003
 GMSC10.SMORF.000_254_909_641    GMSC10.100AA.000_000_000_004
 ```
 ### 90% identity smORF catalog
+
+90% identity smORF catalog contains the representitive peptides by clustering at 90% identidy using Linclust.
+The number of 90% identity smORF catalog is `287,926,875`.
 
 **Identifier:**
 
@@ -81,9 +87,9 @@ Rename mapping file: `90AA_rename.tsv.xz`
 
 Columns: 
 
-1. original_name 
+1. original name of representitive peptides
 
-2. new_name 
+2. new name 
 
 e.g.
 
@@ -97,6 +103,9 @@ GMSC10.SMORF.003_074_035_489    GMSC10.90AA.000_000_000_004
 ### 50% identity smORF catalog
 
 **Identifier:** 
+
+50% identity smORF catalog contains the representitive peptides by clustering at 50% identidy using Linclust.
+The number of 90% identity smORF catalog is `231,429,250`.
 
 Peptides are named: 
 `>GMSC10.50AA.XXX_XXX_XXX_XXX`
@@ -122,9 +131,9 @@ Rename mapping file: `50AA_rename.tsv.xz`
 
 Columns: 
 
-1. original_name 
+1. original name of representitive peptides 
 
-2. new_name 
+2. new name 
 
 e.g.
 ```
@@ -137,19 +146,19 @@ GMSC10.SMORF.003_089_439_589    GMSC10.50AA.000_000_000_005
 ```
 ## Family mapping files
 
-The table relating the name of smORFs,and the clusters they belong to at 90% and 50% identity.
+The table relating the name of smORFs, and the clusters they belong to at 90% and 50% identity.
 
 **file:**
 
-`all_0.9_0.5_family.tsv.xz`
+Family mapping file: `all_0.9_0.5_family.tsv.xz`
 
 Columns: 
 
-1. 100AA smORF 
+1. 100AA smORFs 
 
-2. 90AA smORF
+2. 90AA smORFs
 
-3. 50AA smORF
+3. 50AA smORFs
 
 e.g.
 
