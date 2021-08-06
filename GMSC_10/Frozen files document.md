@@ -1,9 +1,10 @@
 # Frozen versions of data
-## FASTA files(FNA & FAA)
+## FASTA files (FNA & FAA)
 
 ### 100% identity smORF catalog
 
 100% identity smORF catalog contains all the non-singletons in raw data, and rescued singletons that can be aligned to 90% of 50% identity representitive pepetides.
+
 The number of 100% identity smORF catalog is `977,020,743`.
 
 **Identifier:** 
@@ -58,6 +59,7 @@ GMSC10.SMORF.000_254_909_641    GMSC10.100AA.000_000_000_004
 ### 90% identity smORF catalog
 
 90% identity smORF catalog contains the representitive peptides by clustering at 90% identidy using Linclust.
+
 The number of 90% identity smORF catalog is `287,926,875`.
 
 **Identifier:**
@@ -105,12 +107,15 @@ GMSC10.SMORF.003_074_035_489    GMSC10.90AA.000_000_000_004
 **Identifier:** 
 
 50% identity smORF catalog contains the representitive peptides by clustering at 50% identidy using Linclust.
+
 The number of 90% identity smORF catalog is `231,429,250`.
 
 Peptides are named: 
 `>GMSC10.50AA.XXX_XXX_XXX_XXX`
 
 Where `XXX_XXX_XXX_XXX` is a unique numerical identifier (starting at zero). Numbers were assigned in order of increasing number of peptides in clusters. So that the lower the number, the lower the number of peptides in the cluster. And if the number of peptides in clusters is same, numbers were assigned in order of letters of representitive peptides in each cluster.
+
+**Files:**
 
 FAA: `50AA_GMSC.faa.xz`
 
@@ -148,7 +153,7 @@ GMSC10.SMORF.003_089_439_589    GMSC10.50AA.000_000_000_005
 
 The table relating the name of smORFs, and the clusters they belong to at 90% and 50% identity.
 
-**file:**
+**Files:**
 
 Family mapping file: `all_0.9_0.5_family.tsv.xz`
 
