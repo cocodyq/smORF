@@ -178,11 +178,11 @@ Family mapping file: `all_0.9_0.5_family.tsv.xz`
 
 Columns: 
 
-1. 100AA smORFs 
+1. 100AA smORF accession
 
-2. 90AA smORFs
+2. 90AA smORF accession
 
-3. 50AA smORFs
+3. 50AA smORF accession
 
 e.g.
 
